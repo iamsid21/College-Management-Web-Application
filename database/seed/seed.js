@@ -5490,7 +5490,7 @@ const reset = async () => {
     await zeroParamPromise('SET FOREIGN_KEY_CHECKS = 1');
 
     // 1.Add Admin
-    const hashedPassword = await bcrypt.hash('iloveyou', 8);
+    const hashedPassword = await bcrypt.hash('admin', 8);
     await queryParamPromise('insert into admin set ?', {
       admin_id: uuidv4(),
       name: 'adones evangelista',
@@ -5540,7 +5540,7 @@ const reset = async () => {
       const currentStaff = staffData[i];
       const dept_id = department_data[parseInt(i / 15)].dept_id;
       const gender = i % 2 === 0 ? 'Male' : 'Female';
-      const hashedPassword = await bcrypt.hash('iloveyoustaff', 8);
+      const hashedPassword = await bcrypt.hash('staff', 8);
       await queryParamPromise('insert into staff set ?', {
         st_id: uuidv4(),
         st_name: currentStaff.st_name,
@@ -5563,7 +5563,7 @@ const reset = async () => {
     // 5.Add Students
     for (let i = 0; i < studentsData.length; ++i) {
       let currentStudent = studentsData[i];
-      const hashedPassword = await bcrypt.hash('iloveyoustudent', 8);
+      const hashedPassword = await bcrypt.hash('student', 8);
       currentStudent = {
         s_id: uuidv4(),
         ...currentStudent,
